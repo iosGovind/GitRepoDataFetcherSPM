@@ -1,2 +1,3 @@
 # GitRepoDataFetcherSPM
-Its same as GitRepoDataFetcher its for SPM use
+
+A description of this package.
