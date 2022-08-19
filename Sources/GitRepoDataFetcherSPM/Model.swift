@@ -2,7 +2,7 @@
 import Foundation
 
 // MARK: - GitHubRepoModel
- public  struct GitHubRepoModel: Codable {
+ public  struct GitHubRepoModel: Decodable {
     let totalCount: Int
     let incompleteResults: Bool
     let items: [Item]
@@ -15,8 +15,8 @@ import Foundation
 }
 
 // MARK: - Item
-public struct Item: Codable {
-    let name: String?
+public struct Item: Decodable {
+    let name: String
     let itemPrivate: Bool
     let itemDescription: String?
     let language: String?
@@ -27,4 +27,10 @@ public struct Item: Codable {
         case language
         case itemDescription = "description"
     }
+}
+
+// MARK: Available plateform
+public enum Platform: String {
+    case iOS = "ios"
+    case android
 }
