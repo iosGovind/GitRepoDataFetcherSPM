@@ -30,7 +30,11 @@ class WebServices {
             guard let data = data else{ return }
             do{
                 let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
+                if #available(iOS 10.0, *) {
+                    decoder.dateDecodingStrategy = .iso8601
+                } else {
+                    // Fallback on earlier versions
+                }
                 let parsedData = try decoder.decode(GitHubRepoModel.self, from: data)
                 completionHandler(parsedData)
             }
